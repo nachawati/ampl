@@ -1,0 +1,13 @@
+language: java
+jdk:
+- openjdk8
+deploy:
+  provider: releases
+  api_key:
+    secure: h4/idRlI/JrOdirg2gfuz37HQCC/jX1fuY/XdK9H4Uc2dRNAS7MXvAk1LelYUGVMGulwkk95W85vdX+pWi1lkM0kAjG3UoFEALGsfGrfj51fT9xuoOG0Us8VfQ+Qf4mcVtLlop6J0wSXh/eL7HSNKgDXKxD8fM6TYsTS/tfBqRIjvHqs0lB0AgvRK86nqJ8P2Jrp4qIohMr0VFYSdb3Tlxw/OuW771GUaLUdavcwp5RI/Dyeb4osLpCsk4ky40lzuojd1f7j0P5v/KU7uDGLNpITBHznZQuuEY7RmsGOlLe0NNkKMgQr5Issu93270CuFB6pLyjRBwjUVcxlh3E5mxz4TqyZ8Ly57fsURwzBGc20tXhp0jPkFUOZZVO9IcABM4XGWtfdGlXJfJOs6cxK0Mc4/YsAROxB//qf8c4SaAF1wzhCseqqDLAw93a6k43wHqKSSkV8pbghwq++xkDc+XTQ15eeqi2cYPgKe7eBJBoEJWcc60jYPTm3X/K+/updCBpKG7ftP0xxGXRong8N7N3SEnWxz2XHqsUogBZpyZL/ExGU5Ho2bpZGC3s9ctjBdvHH/3RJH3PsvzUidtRJWkCuCHseOMy3NbabCVzeBHBFKqfu4pCO3yxxBcJ6TQclzp5XYYvwmMtu6bdCG5JrI+OUlTo8dchSuy5xLyld278=
+  skip_cleanup: true
+  file_glob: true
+  file: "ampl-model/target/*.jar"
+  on:
+    repo: nachawati/ampl
+    tags: true
