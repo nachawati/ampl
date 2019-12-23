@@ -145,12 +145,11 @@ var_attribute
  */
 expr
     : mult_expr ((PLUS^|MINUS^) mult_expr)*
-    | ((PLUS^|MINUS^) expr)
     ;
 
 mult_expr: pow_expr ((MULT^|DIV_SLASH^|MOD^|DIV^) pow_expr)* ;
 
-pow_expr: atom_expr (POW^ atom_expr)* ;
+pow_expr: unary_expr (POW^ unary_expr)* ;
 
 builtin_function
     : ABS '(' expr ')' -> ^(ABS expr)
@@ -181,6 +180,11 @@ builtin_function
     | TRUNC '(' expr (',' expr)? ')' -> ^(TRUNC expr expr?)
     ;
 
+unary_expr
+    : ((PLUS^|MINUS^) atom_expr)
+    | atom_expr
+    ;
+    
 atom_expr
     : number
     | builtin_function
